@@ -1,0 +1,9 @@
+---
+- name: Update apt cache and upgrade
+  apt:
+    update_cache: yes
+    upgrade: dist
+- name: Install base utilities
+  apt:
+    name: [htop, git, vim, curl, wget, unzip]
+    state: present

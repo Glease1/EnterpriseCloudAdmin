@@ -1,0 +1,9 @@
+---
+- name: Set timezone to UTC
+  timezone:
+    name: UTC
+- name: Set swappiness to 10
+  sysctl:
+    name: vm.swappiness
+    value: '10'
+    state: present

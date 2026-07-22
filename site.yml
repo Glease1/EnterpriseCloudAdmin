@@ -1,0 +1,8 @@
+---
+- name: Full Server Baseline
+  hosts: linux_node
+  become: yes
+  roles:
+    - common
+    - system
+    - security

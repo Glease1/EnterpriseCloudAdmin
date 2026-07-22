@@ -1,0 +1,2 @@
+[linux_node]
+probook ansible_host=<YOUR_IP_HERE> ansible_user=<YOUR_USERNAME_HERE>
