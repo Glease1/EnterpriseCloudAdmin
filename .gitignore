@@ -22,3 +22,4 @@ audit.log
 .DS_Store
 Thumbs.db
 ehthumbs.dbadmin_audit.log
+admin_audit.log
