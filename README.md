@@ -1,46 +1,36 @@
-# UserAdminTool
+# EnterpriseCloudAdmin Suite
 
-UserAdminTool is a native Linux administrative CLI application written in C#. It is designed to manage local Linux user accounts—including account lifecycle and status monitoring—within an enterprise environment. 
+This repository serves as a centralized workspace for my Linux-based C# administration tools. It contains my primary administrative application, alongside the foundational proof-of-work projects that facilitated its development.
 
-The tool follows a "Native Execution" philosophy, interacting directly with Linux system binaries (`useradd`, `userdel`, `chpasswd`) to ensure high performance and minimal overhead.
+## Overview
 
-## Key Features
+The goal of this suite is to provide secure, native-execution tools for Linux system administration using .NET. By combining these projects, I am able to maintain a clear trajectory of my development process—from basic C# Linux interaction to robust, audit-ready system tools.
 
-* **Lifecycle Management**: Create, delete, lock, and unlock local Linux users.
-* **Credential Handling**: Native integration for resetting user passwords.
-* **Audit Logging**: Every administrative action is logged to `audit.log` with UTC timestamps.
-* **System Reporting**: Provides a formatted list of users, including creation time, last login, and account status.
+## Projects
 
-## Commands
+### 1. [UserAdminTool](./UserAdminTool/)
+*My flagship administrative CLI application.*
+Designed to manage local Linux user accounts with auditing and native binary integration. This is the primary project for enterprise-grade account lifecycle management.
 
-| Command | Description |
-| :--- | :--- |
-| `create` | Adds a user and sets an initial password. |
-| `delete` | Removes a user and purges their home directory. |
-| `reset` | Updates a user's password. |
-| `lock` | Locks an account. |
-| `unlock` | Unlocks an account. |
-| `list` | Generates a report of non-system users. |
-| `help` | Displays available commands. |
-| `exit` | Closes the application. |
+### 2. [HealthMonitor](./HealthMonitor/)
+*Foundational Project.*
+A C# utility focused on system monitoring and file-based logging. This project was essential for mastering filesystem interaction and robust logging patterns in Linux.
 
-## Security & Audit
+### 3. [LinuxCalculator](./LinuxCalculator/)
+*Proof-of-Work.*
+A CLI application used to verify .NET SDK compilation and basic C# syntax on Linux. This project confirmed my environment setup and established the standard build workflow for the rest of the suite.
 
-Security is handled via the **AuditDecorator** pattern. All operations pass through an audit layer that logs results to a local file. This ensures an immutable record of system changes for compliance and troubleshooting.
+---
 
-## Requirements
+## Getting Started
 
-* **.NET 8.0 SDK** (or higher) on the target node.
-* **Root/Sudo Privileges**: Because this tool modifies system files, it must be executed with elevated permissions.
+Each project is self-contained. Navigate into the specific directory and use the standard .NET CLI commands:
 
-## Build and Run
-
-### Development
 ```bash
+# Example
+cd UserAdminTool
 dotnet run
-Deployment
-Bash
-dotnet publish -c Release -o ./bin/publish
-./bin/publish/UserAdminTool
 Security Note
-This tool interacts with /etc/passwd and system binaries. It is intended for authorized administrators only. Ensure binary permissions are restricted on the target Linux node to prevent unauthorized system modification.
+Tools in this suite interact with sensitive system files (such as /etc/passwd) and system binaries. They are intended for authorized administrators only. Ensure strict binary permissions are applied to any deployed versions to prevent unauthorized system modification.
+
+Built by Glease1
