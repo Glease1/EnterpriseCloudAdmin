@@ -1,0 +1,7 @@
+- name: Automate
+  hosts: linux_node
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+      become: yes
